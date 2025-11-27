@@ -1,9 +1,9 @@
-import { CharacterCard } from "@/entites/character/ui/CharacterCard";
-import { useDi } from "../di";
+import { CharacterCard } from "@/entites/character/ui/characterCard.component";
+import { useCharactersCatalogService } from "../charactersCatalog.injector";
 import type { Character } from "@/entites/character/model/types";
 
 export const CatalogCard = ({ character }: { character: Character }) => {
-  const { charactersStore } = useDi();
+  const { charactersStore } = useCharactersCatalogService();
 
   return (
     <CharacterCard

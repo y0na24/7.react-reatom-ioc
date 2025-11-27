@@ -1,11 +1,12 @@
-import { CharacterList } from "@/entites/character/ui/CharacterList";
-import { CharacterCard } from "@/entites/character/ui/CharacterCard";
+import { CharacterList } from "@/entites/character/ui/characterList.component";
+import { CharacterCard } from "@/entites/character/ui/characterCard.component";
 import { Button } from "@/shared/ui/button";
-import { useService } from "@/app/locator/ServiceProvider";
 import { reatomComponent } from "@reatom/react";
+import { useService } from "@/app/container/container";
+import { CharactersStore } from "@/entites/character/characters.store";
 
-export const FavoritesPageContent = reatomComponent(() => {
-  const charactersStore = useService("CHARACTERS_STORE");
+export const FavoritesPage = reatomComponent(() => {
+  const charactersStore = useService(CharactersStore);
 
   const favoriteCharacters = charactersStore.favoriteCharacters();
 

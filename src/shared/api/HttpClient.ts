@@ -11,7 +11,7 @@ export type RequestConfig<Payload = undefined> = Payload extends undefined
 
 export type ApiResponse<Data> = Promise<CustomResponse<Data>>;
 
-type CustomResponse<Data> = {
+export type CustomResponse<Data> = {
   success: boolean;
   status: number;
   statusText: string;

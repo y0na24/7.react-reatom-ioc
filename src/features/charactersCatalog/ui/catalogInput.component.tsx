@@ -1,12 +1,12 @@
 import { Input } from "@/shared/ui/input";
-import { useDi } from "../di";
+import { useCharactersCatalogService } from "../charactersCatalog.injector";
 import { wrap } from "@reatom/core";
 import { reatomComponent } from "@reatom/react";
 
 export const CatalogInput = reatomComponent(() => {
   const {
     charactersStore: { search },
-  } = useDi();
+  } = useCharactersCatalogService();
 
   return (
     <Input

@@ -1,6 +1,6 @@
 import type { KeyValueStorage, StorageOptions } from "./types";
 
-class LocalStoragePersister implements KeyValueStorage {
+export class LocalStoragePersister implements KeyValueStorage {
   private prefix: string;
 
   constructor(options: StorageOptions = {}) {
@@ -38,5 +38,3 @@ class LocalStoragePersister implements KeyValueStorage {
     localStorage.clear();
   }
 }
-
-export const localStoragePersister = new LocalStoragePersister();

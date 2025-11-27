@@ -1,14 +1,14 @@
 import { Spinner } from "@/shared/ui/spinner";
-import { useDi } from "./di";
+import { useCharactersCatalogService } from "./charactersCatalog.injector";
 
-import { CatalogInput } from "./ui/CatalogInput";
-import { CatalogList } from "./ui/CatalogList";
+import { CatalogInput } from "./ui/catalogInput.component";
+import { CatalogList } from "./ui/catalogList.component";
 import { reatomComponent } from "@reatom/react";
 
-export const CharactersCatalogFeature = reatomComponent(() => {
+export const CharactersCatalogEntry = reatomComponent(() => {
   const {
     charactersStore: { characters },
-  } = useDi();
+  } = useCharactersCatalogService();
 
   return (
     <div className="p-4 mb-4">

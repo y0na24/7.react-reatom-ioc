@@ -1,12 +1,12 @@
-import { CharacterListOptimized } from "@/entites/character/ui/CharacterListOptimized";
-import { useDi } from "../di";
-import { CatalogCard } from "./CatalogCard";
+import { CharacterListOptimized } from "@/entites/character/ui/characterListOptimized.component";
+import { useCharactersCatalogService } from "../charactersCatalog.injector";
+import { CatalogCard } from "./catalogCard.component";
 import { reatomComponent } from "@reatom/react";
 
 export const CatalogList = reatomComponent(() => {
   const {
     charactersStore: { characters },
-  } = useDi();
+  } = useCharactersCatalogService();
 
   return (
     <CharacterListOptimized>

@@ -1,6 +1,6 @@
 import type { Atom } from "@reatom/core";
 
-export interface Character {
+export type Character = {
   id: number;
   name: string;
   image: string;

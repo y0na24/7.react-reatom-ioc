@@ -1,17 +1,11 @@
-import type { Character } from "../model/types";
+import { type Character } from "./model/types";
 import { atom, computed, sleep, withAsyncData, wrap } from "@reatom/core";
+import { inject, injectable } from "@needle-di/core";
+import { CharactersService } from "./services/charactersService/characters.service";
 
-type Deps = {
-  charactersService: {
-    getCharacters(name?: string): Promise<Character[]>;
-    getFavoriteCharacters(characters: Character[]): Character[];
-    toggleFavorite(characters: Character[], id: number): Promise<void>;
-    clearFavorites(characters: Character[]): Promise<void>;
-  };
-};
-
+@injectable()
 export class CharactersStore {
-  constructor(private readonly charactersService: Deps["charactersService"]) {}
+  constructor(private readonly charactersService = inject(CharactersService)) {}
 
   search = atom("");
 
@@ -19,7 +13,7 @@ export class CharactersStore {
     const query = this.search();
 
     if (query) {
-      await wrap(sleep(1000));
+      await wrap(sleep(200));
     }
 
     return await wrap(this.charactersService.getCharacters(query));

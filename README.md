@@ -4,4 +4,4 @@
 - Страницы персонажей из Рик и Морти.
 - Страница с любимыми персонажами, куда попадают выбранные нажатием на звездочку.
 
-React + Reatom + HOC для работы с Service Locator.
+React + Reatom + IoC-container + Builder pattern.
